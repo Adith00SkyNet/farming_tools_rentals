@@ -1,21 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form id="f1" method="post" >
-    {% csrf_token %}
-   <table class="table table-striped">
-    {{ f.as_table }}
-       <tr>
-           <td>
-                <input type="submit" value="submit">
-           </td>
-       </tr>
+{% extends 'admin_header.html' %}
+{% block content %}
+<div class="admin-card">
+    <h2 class="h5">Category</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="admin-form-grid">
+            {{ f.as_p }}
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
 
-   </table></form>
-<a
-</body>
-</html>
+<div class="admin-card">
+    <h3 class="h6">Existing Categories</h3>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle admin-table mb-0">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in dataset %}
+            <tr>
+                <td>{{ obj.category }}</td>
+                <td>{{ obj.description }}</td>
+                <td class="admin-actions">
+                    <a href="{% url 'Category_Edit' obj.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <form method="post" action="{% url 'Category_Delete' obj.id %}" onsubmit="return confirm('Delete this category?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

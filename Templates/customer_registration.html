@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+       :root {
+    --background: #1a1a2e;
+    --color: #ffffff;
+    --primary-color: #0f3460;
+    --field-bg: #9191911f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "poppins";
+    background: var(--background);
+    color: var(--color);
+    letter-spacing: 1px;
+}
+
+a { text-decoration: none; color: var(--color); }
+
+h1 { font-size: 2.2rem; margin: 0 0 1.25rem; }
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.login-container {
+    width: min(42rem, 100%);
+}
+
+.form-container {
+    border: 1px solid hsla(0, 0%, 65%, 0.158);
+    box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+}
+
+.opacity { opacity: 0.6; }
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    font-size: 0.92rem;
+    opacity: 0.85;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 14px 14.5px;
+    color: var(--color);
+    outline: none;
+    background-color: var(--field-bg);
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    font-size: 15px;
+    backdrop-filter: blur(15px);
+    resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
+    animation: wobble 0.3s ease-in;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.actions button {
+    background-color: var(--primary-color);
+    color: var(--color);
+    padding: 13px 18px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.actions button:hover { transform: scale(1.02); }
+
+.errorlist {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding-left: 1rem;
+    color: #ffb4b4;
+}
+
+@keyframes wobble {
+    0% { transform: scale(1.025); }
+    25% { transform: scale(1); }
+    75% { transform: scale(1.025); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 720px) {
+    .grid-form { grid-template-columns: 1fr; }
+}
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="login-container">
+            <div class="form-container">
+                <h1 class="opacity">REGISTER</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="grid-form">
+                        <div class="field">
+                            <label for="{{ form.name.id_for_label }}">Name</label>
+                            {{ form.name }}
+                            {{ form.name.errors }}
+                        </div>
+                        <div class="field">
+                            <label for="{{ form.email.id_for_label }}">Email</label>
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="field">
+                            <label for="{{ form.phone.id_for_label }}">Phone</label>
+                            {{ form.phone }}
+                            {{ form.phone.errors }}
+                        </div>
+                        <div class="field">
+                            <label for="{{ form.Username.id_for_label }}">Username</label>
+                            {{ form.Username }}
+                            {{ form.Username.errors }}
+                        </div>
+                        <div class="field">
+                            <label for="{{ form.Password.id_for_label }}">Password</label>
+                            {{ form.Password }}
+                            {{ form.Password.errors }}
+                        </div>
+                        <div class="field">
+                            <label for="{{ form.ConfirmPassword.id_for_label }}">Confirm Password</label>
+                            {{ form.ConfirmPassword }}
+                            {{ form.ConfirmPassword.errors }}
+                        </div>
+                        <div class="field full">
+                            <label for="{{ form.Address.id_for_label }}">Address</label>
+                            {{ form.Address }}
+                            {{ form.Address.errors }}
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="opacity" type="submit">SUBMIT</button>
+                        <a href="{% url 'login' %}" class="opacity">LOGIN</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

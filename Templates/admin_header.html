@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        :root {
+            --admin-bg: #f4f6f9;
+            --admin-panel: #ffffff;
+            --admin-nav: #0f3460;
+            --admin-nav-dark: #0a2747;
+            --admin-text: #1f2937;
+            --admin-muted: #6b7280;
+        }
+
+        body {
+            background: var(--admin-bg);
+            color: var(--admin-text);
+        }
+
+        .admin-shell {
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            background: linear-gradient(180deg, var(--admin-nav), var(--admin-nav-dark));
+            color: #fff;
+            min-height: 100vh;
+            padding: 1.25rem;
+        }
+
+        .admin-brand {
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .admin-nav {
+            display: grid;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .admin-nav a {
+            color: rgba(255,255,255,0.92);
+            text-decoration: none;
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.06);
+        }
+
+        .admin-nav a:hover,
+        .admin-nav a.active {
+            background: rgba(255,255,255,0.16);
+            color: #fff;
+        }
+
+        .admin-main {
+            padding: 1.5rem;
+        }
+
+        .admin-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .admin-card {
+            background: var(--admin-panel);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(15, 52, 96, 0.08);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .admin-card h1,
+        .admin-card h2,
+        .admin-card h3,
+        .admin-card h4 {
+            margin-bottom: 0.75rem;
+        }
+
+        .admin-table {
+            background: #fff;
+        }
+
+        .admin-table th {
+            white-space: nowrap;
+        }
+
+        .admin-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem 1rem;
+        }
+
+        .admin-form-grid .full {
+            grid-column: 1 / -1;
+        }
+
+        .admin-form-grid input,
+        .admin-form-grid select,
+        .admin-form-grid textarea,
+        .admin-card input,
+        .admin-card select,
+        .admin-card textarea {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #d6dbe3;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .admin-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .admin-actions form,
+        .admin-actions a {
+            display: inline-block;
+        }
+
+        @media (max-width: 992px) {
+            .admin-sidebar {
+                min-height: auto;
+            }
+
+            .admin-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid admin-shell">
+    <div class="row g-0">
+        <aside class="col-lg-3 col-xl-2 admin-sidebar">
+            <div class="admin-brand h4 mb-2">Farming Admin</div>
+            <div class="text-white-50 small">Rental management dashboard</div>
+            <nav class="admin-nav">
+                <a href="{% url 'adminpanel' %}">Dashboard</a>
+                <a href="{% url 'category_insert' %}">Categories</a>
+                <a href="{% url 'add_district' %}">Districts</a>
+                <a href="{% url 'branch_location_insert' %}">Branch Locations</a>
+                <a href="{% url 'machinery_insert' %}">Machinery</a>
+                <a href="{% url 'maintenance_log_insert' %}">Maintenance</a>
+                <a href="{% url 'insure_policy_insert' %}">Insurance</a>
+                <a href="{% url 'rental_booking_insert' %}">Bookings</a>
+            </nav>
+        </aside>
+        <main class="col-lg-9 col-xl-10 admin-main">
+            <div class="admin-topbar">
+                <div>
+                    <div class="text-uppercase text-muted small">Admin Panel</div>
+                    <h1 class="h3 mb-0">Management Console</h1>
+                </div>
+                <div class="admin-actions">
+                    <a href="{% url 'login' %}" class="btn btn-outline-primary btn-sm">Logout</a>
+                </div>
+            </div>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</div>
+</body>
+</html>
