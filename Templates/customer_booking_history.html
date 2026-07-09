@@ -1,0 +1,56 @@
+{% extends 'customer_shell.html' %}
+{% block title %}My Bookings{% endblock %}
+{% block eyebrow %}Account{% endblock %}
+{% block hero_title %}My bookings{% endblock %}
+{% block hero_text %}Track booking status, payment state, and invoices in one place.{% endblock %}
+{% block content %}
+<div class="site-card">
+    <div class="site-section-title">
+        <h2 class="h4">Booking history</h2>
+        <a href="{% url 'machinery_list' %}" class="btn btn-outline-primary btn-sm">Browse machinery</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle mb-0">
+            <thead>
+            <tr>
+                <th>Machinery</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+                <th>Payment</th>
+                <th>Total Price</th>
+                <th>Created</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in dataset %}
+            <tr>
+                <td>{{ obj.machinery }}</td>
+                <td>{{ obj.start_date }}</td>
+                <td>{{ obj.end_date }}</td>
+                <td><span class="site-chip">{{ obj.get_status_display }}</span></td>
+                <td><span class="site-chip">{{ obj.get_payment_status_display }}</span></td>
+                <td>{{ obj.total_price }}</td>
+                <td>{{ obj.created_at }}</td>
+                <td>
+                    {% if obj.status == 'pending' %}
+                        <form method="post" action="{% url 'cancel_booking' obj.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Cancel this booking?');">Cancel</button>
+                        </form>
+                    {% elif obj.status == 'completed' %}
+                        <a href="{% url 'rental_invoice' obj.id %}" class="btn btn-sm btn-outline-primary">Invoice</a>
+                    {% else %}
+                        <span class="text-muted">-</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="8" class="text-center text-muted py-4">No bookings yet.</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

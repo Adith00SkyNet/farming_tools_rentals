@@ -1,0 +1,51 @@
+{% extends 'admin_header.html' %}
+{% block content %}
+<div class="admin-card">
+    <h2 class="h5">Maintenance Log</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="admin-form-grid">
+            {{ f.as_p }}
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+
+<div class="admin-card">
+    <h3 class="h6">Existing Maintenance Logs</h3>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle mb-0">
+            <thead>
+            <tr>
+                <th>Machinery</th>
+                <th>Description</th>
+                <th>Service Date</th>
+                <th>Cost</th>
+                <th>Next Due Date</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in dataset %}
+            <tr>
+                <td>{{ obj.machinery }}</td>
+                <td>{{ obj.descr }}</td>
+                <td>{{ obj.service_date }}</td>
+                <td>{{ obj.cost }}</td>
+                <td>{{ obj.next_due_date }}</td>
+                <td class="admin-actions">
+                    <a href="{% url 'maintenance_log_edit' obj.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <form method="post" action="{% url 'maintenance_log_delete' obj.id %}" onsubmit="return confirm('Delete this maintenance record?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

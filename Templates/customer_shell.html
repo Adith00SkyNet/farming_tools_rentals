@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Farming Machinery Rental{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        :root {
+            --site-primary: #0f3460;
+            --site-primary-dark: #0a2747;
+            --site-surface: #ffffff;
+            --site-bg: #f4f7fb;
+            --site-text: #203040;
+            --site-muted: #6b7280;
+        }
+        body { background: var(--site-bg); color: var(--site-text); }
+        .site-topbar {
+            background: var(--site-primary-dark);
+            color: rgba(255,255,255,.88);
+            font-size: .9rem;
+        }
+        .site-navbar {
+            background: var(--site-primary);
+        }
+        .site-navbar .nav-link,
+        .site-navbar .navbar-brand,
+        .site-navbar .navbar-text {
+            color: #fff !important;
+        }
+        .site-navbar .nav-link:hover {
+            opacity: .85;
+        }
+        .site-hero {
+            min-height: 260px;
+            background:
+                linear-gradient(rgba(10,39,71,.75), rgba(10,39,71,.65)),
+                url("{% static 'img/product-banner.jpg' %}") center/cover no-repeat;
+            color: #fff;
+        }
+        .site-hero h1 { letter-spacing: 0; }
+        .site-hero p { color: rgba(255,255,255,.88); }
+        .carousel-caption {
+            left: 8%;
+            right: auto;
+            bottom: 2rem;
+            max-width: 42rem;
+            text-align: left;
+            background: rgba(10,39,71,.45);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+        }
+        .carousel-caption p,
+        .carousel-caption h1 {
+            color: #fff;
+            margin-bottom: 0;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            object-position: center;
+        }
+        .site-wrap { padding: 1.5rem 0 3rem; }
+        .site-card {
+            background: var(--site-surface);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(15, 52, 96, 0.08);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .site-grid { display:grid; gap:1rem; }
+        .site-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .site-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .site-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .site-chip {
+            display:inline-flex;
+            align-items:center;
+            padding:.32rem .7rem;
+            border-radius:999px;
+            background:#e9eef7;
+            color:#27415f;
+            font-size:.85rem;
+        }
+        .site-section-title {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:1rem;
+            margin-bottom:1rem;
+        }
+        .site-section-title h2,
+        .site-section-title h3 { margin:0; }
+        .site-actions { display:flex; flex-wrap:wrap; gap:.5rem; }
+        .site-actions form, .site-actions a { display:inline-block; }
+        .site-footer {
+            background: #0a2747;
+            color: rgba(255,255,255,.75);
+            padding: 1.25rem 0;
+            margin-top: 2rem;
+        }
+        .site-nav-links {
+            display:flex;
+            flex-wrap:wrap;
+            gap:.25rem;
+        }
+        .site-nav-links .nav-link {
+            padding-left:.75rem;
+            padding-right:.75rem;
+        }
+        .nav-caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: .45rem;
+            vertical-align: middle;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+        }
+        .site-nav-links .dropdown-toggle::after {
+            display: none;
+        }
+        @media (max-width: 992px) {
+            .site-grid.cols-2,
+            .site-grid.cols-3,
+            .site-grid.cols-4 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg site-navbar py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'customer_dashboard' %}">FarmRental</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+            <div class="navbar-nav ms-auto site-nav-links">
+                <a class="nav-link" href="{% url 'customer_dashboard' %}">Home</a>
+                <a class="nav-link" href="{% url 'machinery_list' %}">Machinery</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-inline-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories <span class="nav-caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="{% url 'customer_categories' %}">All Categories</a>
+                        {% for item in categories_nav %}
+                        <a class="dropdown-item" href="{% url 'machinery_list' %}?category={{ item.id }}">{{ item.category }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <a class="nav-link" href="{% url 'customer_branches' %}">Branches</a>
+                <a class="nav-link" href="{% url 'my_bookings' %}">Bookings</a>
+                <a class="nav-link" href="{% url 'customer_profile' %}">Profile</a>
+                <a class="nav-link" href="{% url 'login' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+{% block header_media %}{% endblock %}
+
+<main class="site-wrap">
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container d-flex justify-content-between flex-wrap gap-3">
+        <div>Farming Machinery Rental</div>
+        <div class="d-flex gap-3 flex-wrap">
+            <a class="text-white-50" href="{% url 'machinery_list' %}">Browse</a>
+            <a class="text-white-50" href="{% url 'my_bookings' %}">My Bookings</a>
+            <a class="text-white-50" href="{% url 'customer_profile' %}">Profile</a>
+        </div>
+
+    </div>
+    <div class="site-topbar py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex gap-3">
+            <span>Call: (+012) 1234 567890</span>
+            <span>Email: support@farmrental.local</span>
+        </div>
+    </div>
+</div>
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

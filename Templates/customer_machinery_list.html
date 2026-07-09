@@ -1,0 +1,115 @@
+{% extends 'customer_shell.html' %}
+{% block title %}Machinery{% endblock %}
+{% block eyebrow %}Browse{% endblock %}
+{% block hero_title %}Available machinery{% endblock %}
+{% block hero_text %}Search by category, district, status, or price and open the machine detail page to book.{% endblock %}
+{% block content %}
+<div class="site-card">
+    <form class="row g-3" method="get">
+        <div class="col-12 col-lg-4">
+            <label class="form-label">Search</label>
+            <input type="text" class="form-control" name="q" value="{{ selected_query }}" placeholder="Search by name, model, specification, category, or branch">
+        </div>
+        <div class="col-6 col-lg-2">
+            <label class="form-label">Category</label>
+            <select class="form-select" name="category">
+                <option value="">All</option>
+                {% for item in categories %}
+                <option value="{{ item.id }}" {% if selected_category == item.id|stringformat:"s" %}selected{% endif %}>{{ item.category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-6 col-lg-2">
+            <label class="form-label">District</label>
+            <select class="form-select" name="district">
+                <option value="">All</option>
+                {% for item in districts %}
+                <option value="{{ item.id }}" {% if selected_district == item.id|stringformat:"s" %}selected{% endif %}>{{ item.district }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-6 col-lg-2">
+            <label class="form-label">Status</label>
+            <select class="form-select" name="status">
+                <option value="">All</option>
+                {% for value,label in status_choices %}
+                <option value="{{ value }}" {% if selected_status == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-3 col-lg-1">
+            <label class="form-label">Min</label>
+            <input type="number" class="form-control" name="min_price" value="{{ selected_min_price }}">
+        </div>
+        <div class="col-3 col-lg-1">
+            <label class="form-label">Max</label>
+            <input type="number" class="form-control" name="max_price" value="{{ selected_max_price }}">
+        </div>
+        <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <a href="{% url 'machinery_list' %}" class="btn btn-outline-secondary">Clear</a>
+            <a href="{% url 'my_bookings' %}" class="btn btn-outline-primary ms-auto">My Bookings</a>
+        </div>
+    </form>
+</div>
+
+<div class="site-grid cols-3">
+    {% for obj in dataset %}
+    <div class="card border-0 shadow-sm h-100">
+        <img src="{{ obj.img_url1 }}" class="card-img-top" alt="{{ obj.name }}" style="aspect-ratio: 4 / 3; object-fit: cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">{{ obj.name }}</h5>
+                <span class="site-chip">{{ obj.get_status_display }}</span>
+            </div>
+            <div class="text-muted small mb-2">{{ obj.category }} | {{ obj.branch }}</div>
+            <div class="mb-2">Model: {{ obj.model }}</div>
+            <div class="mb-2">Rate per day: {{ obj.base_price_day }}</div>
+            <div class="mt-auto">
+                <a href="{% url 'machinery_detail' obj.id %}" class="btn btn-primary w-100">View / Book</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="site-card">No machinery found.</div>
+    {% endfor %}
+</div>
+
+{% if page_obj.paginator.num_pages > 1 %}
+<div class="site-card mt-4">
+    <nav aria-label="Machinery pagination">
+        <ul class="pagination mb-0 justify-content-center flex-wrap">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1{% if selected_query %}&q={{ selected_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_district %}&district={{ selected_district }}{% endif %}{% if selected_status %}&status={{ selected_status }}{% endif %}{% if selected_min_price %}&min_price={{ selected_min_price }}{% endif %}{% if selected_max_price %}&max_price={{ selected_max_price }}{% endif %}">First</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if selected_query %}&q={{ selected_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_district %}&district={{ selected_district }}{% endif %}{% if selected_status %}&status={{ selected_status }}{% endif %}{% if selected_min_price %}&min_price={{ selected_min_price }}{% endif %}{% if selected_max_price %}&max_price={{ selected_max_price }}{% endif %}">Previous</a>
+            </li>
+            {% endif %}
+
+            {% for num in page_range %}
+                {% if num == page_obj.paginator.ELLIPSIS %}
+                    <li class="page-item disabled"><span class="page-link">{{ num }}</span></li>
+                {% elif num == page_obj.number %}
+                    <li class="page-item active" aria-current="page"><span class="page-link">{{ num }}</span></li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}{% if selected_query %}&q={{ selected_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_district %}&district={{ selected_district }}{% endif %}{% if selected_status %}&status={{ selected_status }}{% endif %}{% if selected_min_price %}&min_price={{ selected_min_price }}{% endif %}{% if selected_max_price %}&max_price={{ selected_max_price }}{% endif %}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if selected_query %}&q={{ selected_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_district %}&district={{ selected_district }}{% endif %}{% if selected_status %}&status={{ selected_status }}{% endif %}{% if selected_min_price %}&min_price={{ selected_min_price }}{% endif %}{% if selected_max_price %}&max_price={{ selected_max_price }}{% endif %}">Next</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if selected_query %}&q={{ selected_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_district %}&district={{ selected_district }}{% endif %}{% if selected_status %}&status={{ selected_status }}{% endif %}{% if selected_min_price %}&min_price={{ selected_min_price }}{% endif %}{% if selected_max_price %}&max_price={{ selected_max_price }}{% endif %}">Last</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endif %}
+{% endblock %}

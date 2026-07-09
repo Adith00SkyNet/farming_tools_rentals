@@ -1,0 +1,688 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$4UeDstY5xG3xOL3grSP0nG$79NLKZ9yyDz2MmeXzV2hi6KIeiCGNdmXuMftW+crhcs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "adith",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-14T06:17:50.631Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$XBmLVXNQLnBDnr7kjQYfhq$/qPHps0xpRJj3k+qS1SCmyZTt2JdB93ybawG3D5WDLs=",
+    "last_login": "2026-05-30T05:10:42.706Z",
+    "is_superuser": true,
+    "username": "adith123",
+    "first_name": "",
+    "last_name": "",
+    "email": "adithe84@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-30T04:42:02.941Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$HR7qk3yuniq0tfYF1cxnfF$WxZOKbMDqFkO8RRi8nOZ15yKpAiu8pNEF9BQQ2nsh5w=",
+    "last_login": "2026-07-02T04:35:52.452Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-30T04:54:28.653Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$lKBVgyWAE9delSkvP1YzEg$SAgp6M7YxRLwg7IJF2R4al3/HXakH3+QvVefckozP2E=",
+    "last_login": "2026-07-09T06:18:53.339Z",
+    "is_superuser": false,
+    "username": "user",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-02T03:12:37.328Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "c59l9vpgiqe27646vgeeu3sd49mssli0",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChgMO4dO8ZmgFGqRpISrsy3l2bdKHb_977LzXyupRx7TKPU1YnZdXhd4ucHlI3kO9cb02nVpd5inpT9E67vrQsz_Pu_h0U7uVbO28hUSSfPHuIYgwYloFInGHmI4WEAOGKEDGiJcjoUZB44ODQJPX-AM8aN0E:1wVki4:rfrFqrSQE0ULsR7c-ZGKWw5vSXNviuAjjQ3D7FGjlOY",
+    "expire_date": "2026-06-20T06:40:44.472Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hxuis6dp333purzqpfkgwm0y8rl88txp",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8SqEu3fsNZIYZpGogKe3K-O_apAvd3nPOfYkI21ri1nmJM4mzGMTpd0NID647oDvUW5Op1XWZUe6KPGiX10b8vBzu30GBXr61QhvID9k41oaUdynbyYMK4JxOGQFAG6cDeGampDz50eRpDMgMzqJ4fwDrcjiN:1whi61:ZW-wOMmi83_2_FLl23x1djqbJG-tWbRDtBkQQFPtB_8",
+    "expire_date": "2026-07-23T06:18:53.339Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jdwlrhfad33hce2nicd10xpqdz35rx7j",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8SqEu3fsNZIYZpGogKe3K-O_apAvd3nPOfYkI21ri1nmJM4mzGMTpd0NID647oDvUW5Op1XWZUe6KPGiX10b8vBzu30GBXr61QhvID9k41oaUdynbyYMK4JxOGQFAG6cDeGampDz50eRpDMgMzqJ4fwDrcjiN:1wfANq:eC5ZoN-NduBeqhw9UpQsE0FWvm88TkOs3ZutAuLruVs",
+    "expire_date": "2026-07-16T05:54:46.756Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o9k752vdb6oi42qr7gz3si552fnfoujb",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChgMO4dO8ZmgFGqRpISrsy3l2bdKHb_977LzXyupRx7TKPU1YnZdXhd4ucHlI3kO9cb02nVpd5inpT9E67vrQsz_Pu_h0U7uVbO28hUSSfPHuIYgwYloFInGHmI4WEAOGKEDGiJcjoUZB44ODQJPX-AM8aN0E:1wZN98:nq_RxrhV0OzQeBelDSRr0GzKhVwgEF41EiPrSvojlNA",
+    "expire_date": "2026-06-30T06:19:38.268Z"
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 3,
+  "fields": {
+    "category": "Tractor",
+    "description": "Powerful tractor suitable for ploughing and hauling heavy loads in large farms."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 4,
+  "fields": {
+    "category": "Harvester",
+    "description": "Advanced harvesting machine ideal for paddy and wheat harvesting."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 5,
+  "fields": {
+    "category": "Tiller",
+    "description": "Soil preparation machine used for loosening and mixing soil before planting."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 6,
+  "fields": {
+    "category": "Transplanter",
+    "description": "Automated equipment used for transplanting seedlings into agricultural fields."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 7,
+  "fields": {
+    "category": "Plough",
+    "description": "Farming implement used for turning and preparing soil for cultivation."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 8,
+  "fields": {
+    "category": "Reaper",
+    "description": "Crop cutting machine used during harvesting seasons for fast and efficient cutting."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 9,
+  "fields": {
+    "category": "Seeder",
+    "description": "Equipment designed for accurate seed placement and uniform sowing in fields."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 10,
+  "fields": {
+    "category": "Irrigation Equipment",
+    "description": "Machinery used for supplying and distributing water to agricultural lands."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 11,
+  "fields": {
+    "category": "Sprayer",
+    "description": "Agricultural spraying machine used for pesticides, herbicides, and fertilizers."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 12,
+  "fields": {
+    "category": "Excavator",
+    "description": "Heavy machinery used for digging, trenching, and land clearing operations."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 13,
+  "fields": {
+    "category": "Excavator",
+    "description": "Heavy machinery used for digging, trenching, and land clearing operations."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 14,
+  "fields": {
+    "category": "Climber",
+    "description": "Specialized equipment used for climbing coconut and arecanut trees safely."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 15,
+  "fields": {
+    "category": "Cutter",
+    "description": "Agricultural machine designed for cutting crops like sugarcane and grass."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 16,
+  "fields": {
+    "category": "Spreader",
+    "description": "Equipment used for evenly spreading fertilizers, seeds, or compost materials."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 17,
+  "fields": {
+    "category": "Trailer",
+    "description": "Transport equipment used for carrying crops, fertilizers, and farm materials."
+  }
+},
+{
+  "model": "adminpanel.category_model",
+  "pk": 18,
+  "fields": {
+    "category": "Dairy Equipment",
+    "description": "Machinery used in dairy farms for milk extraction and processing activities."
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 2,
+  "fields": {
+    "district": "Kozhikode"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 4,
+  "fields": {
+    "district": "Ernamkulam"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 5,
+  "fields": {
+    "district": "Thrissur"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 6,
+  "fields": {
+    "district": "Thiruvananthapuram"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 7,
+  "fields": {
+    "district": "Kollam"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 8,
+  "fields": {
+    "district": "Pathanamthitta"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 9,
+  "fields": {
+    "district": "Alappuzha"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 10,
+  "fields": {
+    "district": "Kottayam"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 11,
+  "fields": {
+    "district": "Idukki"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 12,
+  "fields": {
+    "district": "Palakkad"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 13,
+  "fields": {
+    "district": "Malappuram"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 14,
+  "fields": {
+    "district": "Wayanad"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 15,
+  "fields": {
+    "district": "Kannur"
+  }
+},
+{
+  "model": "adminpanel.district_model",
+  "pk": 16,
+  "fields": {
+    "district": "Kasaragod"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 2,
+  "fields": {
+    "address": "NH Bypass Road, Edappally, Kochi",
+    "district": 4,
+    "location": "Edappally",
+    "postal_code": "682024"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 3,
+  "fields": {
+    "address": "Near Railway Station, Punkunnam, Thrissur",
+    "district": 5,
+    "location": "Punkunnam",
+    "postal_code": "680002"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 4,
+  "fields": {
+    "address": "InfoPark Road, Kakkanad, Kochi",
+    "district": 4,
+    "location": "Kakkanad",
+    "postal_code": "682030"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 5,
+  "fields": {
+    "address": "Bank Junction, Aluva, Ernakulam",
+    "district": 4,
+    "location": "Aluva",
+    "postal_code": "683101"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 6,
+  "fields": {
+    "address": "KSRTC Road, Irinjalakuda, Thrissur",
+    "district": 5,
+    "location": "Irinjalakuda",
+    "postal_code": "680121"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 7,
+  "fields": {
+    "address": "MC Road, Ettumanoor, Kottayam",
+    "district": 10,
+    "location": "Ettumanoor",
+    "postal_code": "686631"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 8,
+  "fields": {
+    "address": "College Road, Pala, Kottayam",
+    "district": 10,
+    "location": "Pala",
+    "postal_code": "686575"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 9,
+  "fields": {
+    "address": "Main Road, Cherthala, Alappuzha",
+    "district": 9,
+    "location": "Cherthala",
+    "postal_code": "688524"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 10,
+  "fields": {
+    "address": "Bus Stand Road, Ottapalam, Palakkad",
+    "district": 12,
+    "location": "Ottapalam",
+    "postal_code": "679101"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 11,
+  "fields": {
+    "address": "Main Bazaar Road, Chittur, Palakkad",
+    "district": 12,
+    "location": "Chittur",
+    "postal_code": "678101"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 12,
+  "fields": {
+    "address": "National Highway Road, Thalassery, Kannur",
+    "district": 15,
+    "location": "Thalassery",
+    "postal_code": "670101"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 13,
+  "fields": {
+    "address": "Beach Road, Koyilandy, Kozhikode",
+    "district": 2,
+    "location": "Koyilandy",
+    "postal_code": "673305"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 14,
+  "fields": {
+    "address": "Jubilee Road, Perinthalmanna, Malappuram",
+    "district": 13,
+    "location": "Perinthalmanna",
+    "postal_code": "679322"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 15,
+  "fields": {
+    "address": "Market Road, Thodupuzha, Idukki",
+    "district": 11,
+    "location": "Thodupuzha",
+    "postal_code": "685584"
+  }
+},
+{
+  "model": "adminpanel.branch_location_model",
+  "pk": 16,
+  "fields": {
+    "address": "Technopark Main Road, Kazhakkoottam, TVM",
+    "district": 6,
+    "location": "Kazhakkoottam",
+    "postal_code": "695582"
+  }
+},
+{
+  "model": "adminpanel.machinery_model",
+  "pk": 2,
+  "fields": {
+    "branch": 2,
+    "category": 3,
+    "name": "Mahindra Tractor 575",
+    "model": "575 DI XP Plus",
+    "year": "2023",
+    "specific": "47 HP diesel engine, power steering, 6 forward gears, hydraulic lifting capacity 1600 kg",
+    "base_price_day": 2500,
+    "status": "available",
+    "created_at": "2026-07-02",
+    "gst": "5",
+    "img_url1": "https://i.pinimg.com/736x/fe/46/61/fe46615fa5e544ff91837db84aaac9e7.jpg",
+    "img_url2": "https://i.pinimg.com/736x/99/5b/df/995bdfbb5d5628ba876ea0be51d82016.jpg"
+  }
+},
+{
+  "model": "adminpanel.machinery_model",
+  "pk": 3,
+  "fields": {
+    "branch": 3,
+    "category": 4,
+    "name": "John Deere Harvester",
+    "model": "JD-H900",
+    "year": "2022",
+    "specific": "6-row harvesting system, AC cabin, GPS support",
+    "base_price_day": 8500,
+    "status": "available",
+    "created_at": "2026-07-02",
+    "gst": "18",
+    "img_url1": "https://i.pinimg.com/1200x/f7/bd/24/f7bd24cf05a798f7d4c298343da198ba.jpg",
+    "img_url2": "https://i.pinimg.com/1200x/cf/5b/1e/cf5b1e7c5ed07d2abf61973df9ddd5e5.jpg"
+  }
+},
+{
+  "model": "adminpanel.machinery_model",
+  "pk": 4,
+  "fields": {
+    "branch": 7,
+    "category": 5,
+    "name": "Kubota Power Tiller",
+    "model": "KT-120",
+    "year": "2024",
+    "specific": "12 HP engine, rotary blades, adjustable handle",
+    "base_price_day": 1800,
+    "status": "booked",
+    "created_at": "2026-07-02",
+    "gst": "12",
+    "img_url1": "https://i.pinimg.com/1200x/1a/1a/d6/1a1ad6bd6a5e49fceff8433c841fda4d.jpg",
+    "img_url2": "https://i.pinimg.com/736x/5f/11/64/5f11645acf8978a61c454ef5f8b981e7.jpg"
+  }
+},
+{
+  "model": "adminpanel.machinery_model",
+  "pk": 5,
+  "fields": {
+    "branch": 5,
+    "category": 3,
+    "name": "Swaraj Tractor 744",
+    "model": "744 FE",
+    "year": "2021",
+    "specific": "50 HP engine, dual clutch, oil immersed brakes",
+    "base_price_day": 2300,
+    "status": "available",
+    "created_at": "2026-07-02",
+    "gst": "18",
+    "img_url1": "https://i.pinimg.com/736x/af/eb/04/afeb04b00ad5b370ae2296f69fffc6dc.jpg",
+    "img_url2": "https://i.pinimg.com/736x/c6/c5/d1/c6c5d1a360294842a412394e53a042dd.jpg"
+  }
+},
+{
+  "model": "adminpanel.machinery_model",
+  "pk": 6,
+  "fields": {
+    "branch": 9,
+    "category": 6,
+    "name": "Rice Transplanter Pro",
+    "model": "RTP-8",
+    "year": "2023",
+    "specific": "8-row automatic transplanting system",
+    "base_price_day": 4200,
+    "status": "maintenance",
+    "created_at": "2026-07-02",
+    "gst": "18",
+    "img_url1": "https://i.pinimg.com/736x/27/9d/58/279d58d6cfc11174d0b9b46c19496d10.jpg",
+    "img_url2": "https://i.pinimg.com/736x/72/5a/67/725a674742b480a1fb3dcf76f3bf3894.jpg"
+  }
+},
+{
+  "model": "adminpanel.machinery_model",
+  "pk": 7,
+  "fields": {
+    "branch": 10,
+    "category": 3,
+    "name": "Sonalika Mini Tractor",
+    "model": "MM18",
+    "year": "2022",
+    "specific": "Compact body, 18 HP engine for garden farming",
+    "base_price_day": 1900,
+    "status": "available",
+    "created_at": "2026-07-02",
+    "gst": "18",
+    "img_url1": "https://i.pinimg.com/1200x/f4/d1/23/f4d1239fb41aa1e9290826bc927ef3a3.jpg",
+    "img_url2": "https://i.pinimg.com/1200x/87/ec/2c/87ec2ccceec1f0fade51bbbfb5cfbe5b.jpg"
+  }
+},
+{
+  "model": "adminpanel.machinery_model",
+  "pk": 8,
+  "fields": {
+    "branch": 4,
+    "category": 7,
+    "name": "Disc Plough Heavy Duty",
+    "model": "DP-HD22",
+    "year": "2024",
+    "specific": "3-disc plough system with heavy steel frame",
+    "base_price_day": 1200,
+    "status": "available",
+    "created_at": "2026-07-02",
+    "gst": "12",
+    "img_url1": "https://i.pinimg.com/1200x/71/9b/de/719bdeeb4c9718e6cec8338bc27d0141.jpg",
+    "img_url2": "https://i.pinimg.com/1200x/46/8a/ad/468aad5a13a1e02733ea29f9c3cf9769.jpg"
+  }
+},
+{
+  "model": "adminpanel.maintenance_log_model",
+  "pk": 2,
+  "fields": {
+    "machinery": 2,
+    "descr": "Engine oil change and hydraulic system inspection",
+    "service_date": "2026-07-23",
+    "cost": 4500,
+    "next_due_date": "2026-08-23"
+  }
+},
+{
+  "model": "adminpanel.insure_policy_model",
+  "pk": 2,
+  "fields": {
+    "machinery": 2,
+    "provider_name": "New India Assurance",
+    "policy_no": "789396457821007",
+    "start_date": "2026-07-02",
+    "end_date": "2027-07-01",
+    "coverage_detail": "Liability"
+  }
+},
+{
+  "model": "adminpanel.rental_booking_model",
+  "pk": 1,
+  "fields": {
+    "customer": [
+      "user"
+    ],
+    "machinery": 2,
+    "start_date": "2026-07-03",
+    "end_date": "2026-07-09",
+    "status": "approved",
+    "payment_status": "unpaid",
+    "total_price": 17500,
+    "created_at": "2026-07-02T04:46:58.753Z"
+  }
+},
+{
+  "model": "login.customer_model",
+  "pk": 1,
+  "fields": {
+    "Login": [
+      "adith"
+    ],
+    "name": "test",
+    "email": "test2@gmail.com",
+    "phone": 1111111111,
+    "Address": "7RF5+472\r\nTondayad NH66, Four square Building ,2nd & 3 rd floors,Near star care hospital\r\nKozhikode Bypass\r\nThondayad",
+    "CreatedAt": "2026-05-14T06:17:50.810Z",
+    "UpdatedAt": "2026-05-14T06:17:50.810Z"
+  }
+},
+{
+  "model": "login.customer_model",
+  "pk": 2,
+  "fields": {
+    "Login": [
+      "admin"
+    ],
+    "name": "test3",
+    "email": "test3@gmail.com",
+    "phone": 1234567890,
+    "Address": "test",
+    "CreatedAt": "2026-05-30T04:54:28.836Z",
+    "UpdatedAt": "2026-05-30T04:54:28.836Z"
+  }
+},
+{
+  "model": "login.customer_model",
+  "pk": 3,
+  "fields": {
+    "Login": [
+      "user"
+    ],
+    "name": "user",
+    "email": "user@gmail.com",
+    "phone": 1234567890,
+    "Address": "users address",
+    "CreatedAt": "2026-07-02T03:12:37.527Z",
+    "UpdatedAt": "2026-07-02T03:12:37.527Z"
+  }
+}
+]

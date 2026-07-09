@@ -1,0 +1,20 @@
+{% extends 'customer_shell.html' %}
+{% block title %}Profile{% endblock %}
+{% block eyebrow %}Account{% endblock %}
+{% block hero_title %}Your profile{% endblock %}
+{% block hero_text %}View the account details linked to your rental profile.{% endblock %}
+{% block content %}
+<div class="site-card">
+    {% if obj %}
+    <div class="site-grid cols-2">
+        <div><div class="small text-muted">Name</div><div class="h5">{{ obj.name }}</div></div>
+        <div><div class="small text-muted">Email</div><div class="h5">{{ obj.email }}</div></div>
+        <div><div class="small text-muted">Phone</div><div class="h5">{{ obj.phone }}</div></div>
+        <div><div class="small text-muted">Username</div><div class="h5">{{ obj.Login.username }}</div></div>
+        <div class="full"><div class="small text-muted">Address</div><div class="h5">{{ obj.Address }}</div></div>
+    </div>
+    {% else %}
+    <div class="text-muted">No profile record found for this account.</div>
+    {% endif %}
+</div>
+{% endblock %}

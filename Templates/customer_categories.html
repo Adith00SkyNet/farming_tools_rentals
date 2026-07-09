@@ -1,0 +1,18 @@
+{% extends 'customer_shell.html' %}
+{% block title %}Categories{% endblock %}
+{% block eyebrow %}Browse{% endblock %}
+{% block hero_title %}Categories{% endblock %}
+{% block hero_text %}Choose an equipment category and move straight to the machinery list.{% endblock %}
+{% block content %}
+<div class="site-grid cols-3">
+    {% for obj in dataset %}
+    <div class="site-card">
+        <h3 class="h5 mb-2">{{ obj.category }}</h3>
+        <p class="text-muted mb-3">{{ obj.description }}</p>
+        <a href="{% url 'machinery_list' %}?category={{ obj.id }}" class="btn btn-primary btn-sm">View Machinery</a>
+    </div>
+    {% empty %}
+    <div class="site-card">No categories found.</div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'admin_header.html' %}
+{% block content %}
+<div class="admin-card">
+    <h2 class="h5">Insurance Policy</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="admin-form-grid">
+            {{ f.as_p }}
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+
+<div class="admin-card">
+    <h3 class="h6">Existing Policies</h3>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle mb-0">
+            <thead>
+            <tr>
+                <th>Machinery</th>
+                <th>Provider</th>
+                <th>Policy No</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Coverage</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in dataset %}
+            <tr>
+                <td>{{ obj.machinery }}</td>
+                <td>{{ obj.provider_name }}</td>
+                <td>{{ obj.policy_no }}</td>
+                <td>{{ obj.start_date }}</td>
+                <td>{{ obj.end_date }}</td>
+                <td>{{ obj.coverage_detail }}</td>
+                <td class="admin-actions">
+                    <a href="{% url 'insure_policy_edit' obj.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <form method="post" action="{% url 'insure_policy_delete' obj.id %}" onsubmit="return confirm('Delete this insurance policy?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

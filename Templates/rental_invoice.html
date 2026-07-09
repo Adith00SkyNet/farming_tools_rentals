@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice {{ obj.id }}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">Invoice #{{ obj.id }}</h1>
+        <a href="{% url 'my_bookings' %}" class="btn btn-outline-primary">Back to bookings</a>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="border rounded p-3">
+                <h5 class="mb-3">Booking Details</h5>
+                <p class="mb-1"><strong>Customer:</strong> {{ obj.customer.username }}</p>
+                <p class="mb-1"><strong>Machinery:</strong> {{ obj.machinery }}</p>
+                <p class="mb-1"><strong>Branch:</strong> {{ obj.machinery.branch }}</p>
+                <p class="mb-1"><strong>Category:</strong> {{ obj.machinery.category }}</p>
+                <p class="mb-1"><strong>Start Date:</strong> {{ obj.start_date }}</p>
+                <p class="mb-1"><strong>End Date:</strong> {{ obj.end_date }}</p>
+                <p class="mb-1"><strong>Status:</strong> {{ obj.status }}</p>
+                <p class="mb-1"><strong>Payment Status:</strong> {{ obj.payment_status }}</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="border rounded p-3">
+                <h5 class="mb-3">Amount Summary</h5>
+                <p class="mb-1"><strong>Daily Rate:</strong> {{ obj.machinery.base_price_day }}</p>
+                <p class="mb-1"><strong>Total Price:</strong> {{ obj.total_price }}</p>
+                <p class="mb-1"><strong>Created At:</strong> {{ obj.created_at }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

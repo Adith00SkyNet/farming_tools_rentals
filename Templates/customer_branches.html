@@ -1,0 +1,35 @@
+{% extends 'customer_shell.html' %}
+{% block title %}Branches{% endblock %}
+{% block eyebrow %}Network{% endblock %}
+{% block hero_title %}Branch locations{% endblock %}
+{% block hero_text %}Find where machinery is based and narrow your search by district.{% endblock %}
+{% block content %}
+<div class="site-card">
+    <div class="table-responsive">
+        <table class="table table-striped align-middle mb-0">
+            <thead>
+            <tr>
+                <th>Location</th>
+                <th>District</th>
+                <th>Address</th>
+                <th>Postal Code</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in dataset %}
+            <tr>
+                <td>{{ obj.location }}</td>
+                <td>{{ obj.district }}</td>
+                <td>{{ obj.address }}</td>
+                <td>{{ obj.postal_code }}</td>
+                <td><a href="{% url 'machinery_list' %}?district={{ obj.district_id }}" class="btn btn-sm btn-outline-primary">View machinery</a></td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="text-center text-muted py-4">No branch locations found.</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
